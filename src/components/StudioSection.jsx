@@ -70,7 +70,7 @@ export default function StudioSection() {
             <div className="lg:col-span-5">
               <div className="relative aspect-[4/5] bg-[#EBE7DF] overflow-hidden border border-[#DCD7CD] group">
                 <img
-                  src="/images/vandana-babbar.png"
+                  src={`${import.meta.env.BASE_URL}images/vandana-babbar.png`}
                   alt="Vandana Babbar — Founder & Principal Architect"
                   className="w-full h-full object-cover object-top grayscale contrast-105 group-hover:grayscale-0 transition-all duration-700 ease-out"
                 />
