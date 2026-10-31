@@ -182,7 +182,7 @@ export default function WorkSection({ onSelectProject }) {
 
         {/* --- VIEW MODE 2: ARCHITECTURAL INDEX LIST --- */}
         {viewMode === 'list' && (
-          <div className="border border-[#DCD7CD] bg-[#F7F5F0] overflow-x-auto touch-pan-x">
+          <div className="border border-[#DCD7CD] bg-[#F7F5F0] overflow-x-auto">
             <table className="w-full text-left border-collapse min-w-[640px]">
               <thead>
                 <tr className="border-b border-[#DCD7CD] bg-[#EBE7DF]/60 font-mono text-[10px] uppercase tracking-widest text-[#6E6A63]">

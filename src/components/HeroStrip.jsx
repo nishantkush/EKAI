@@ -45,7 +45,7 @@ export default function HeroStrip({ onSelectProject }) {
   return (
     <section
       id="home"
-      className="relative min-h-[500px] h-[100dvh] sm:h-screen flex flex-col justify-between pt-20 sm:pt-24 lg:pt-28 pb-4 sm:pb-6 lg:pb-8 bg-[#F7F5F0] overflow-hidden"
+      className="relative min-h-[460px] h-[85vh] sm:h-screen flex flex-col justify-between pt-20 sm:pt-24 lg:pt-28 pb-4 sm:pb-6 lg:pb-8 bg-[#F7F5F0]"
     >
       {/* Top Bar: Navigation Arrows (Placed above pictures) */}
       <div className="max-w-[1720px] w-full mx-auto px-4 sm:px-8 lg:px-16 mb-2 sm:mb-4 flex items-center justify-between flex-none">
@@ -80,7 +80,7 @@ export default function HeroStrip({ onSelectProject }) {
           onMouseLeave={handleMouseLeave}
           onMouseUp={handleMouseUp}
           onMouseMove={handleMouseMove}
-          className={`flex gap-4 sm:gap-6 lg:gap-8 overflow-x-auto no-scrollbar px-4 sm:px-8 lg:px-16 h-full py-1 select-none items-center touch-pan-x ${
+          className={`flex gap-4 sm:gap-6 lg:gap-8 overflow-x-auto no-scrollbar px-4 sm:px-8 lg:px-16 h-full py-1 select-none items-center ${
             isDragging ? 'cursor-grabbing' : 'cursor-grab'
           }`}
           style={{

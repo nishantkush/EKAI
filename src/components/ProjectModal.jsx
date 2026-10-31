@@ -151,7 +151,7 @@ export default function ProjectModal({ project, onClose, onSelectProject }) {
 
                   {/* Thumbnails Row */}
                   {allImages.length > 1 && (
-                    <div className="flex gap-2 overflow-x-auto no-scrollbar py-1 touch-pan-x">
+                    <div className="flex gap-2 overflow-x-auto no-scrollbar py-1">
                       {allImages.map((img, i) => (
                         <button
                           key={i}

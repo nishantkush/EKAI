@@ -43,7 +43,7 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-[#F7F5F0] text-[#1C1B1A] font-sans selection:bg-[#8FA3B3]/25 selection:text-[#1C1B1A]">
+    <div className="min-h-screen overflow-x-clip bg-[#F7F5F0] text-[#1C1B1A] font-sans selection:bg-[#8FA3B3]/25 selection:text-[#1C1B1A]">
       {/* Global Minimalist Header */}
       <Navbar
         activeSection={activeSection}
