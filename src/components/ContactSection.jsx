@@ -16,12 +16,12 @@ export default function ContactSection() {
         <div className="grid grid-cols-1 md:grid-cols-3 border border-[#DCD7CD] bg-[#EBE7DF]/30">
           
           {/* Column 1: Name, Contact Number, Email ID */}
-          <div className="p-8 sm:p-10 border-b md:border-b-0 md:border-r border-[#DCD7CD] flex flex-col justify-between min-h-[220px]">
+          <div className="p-8 sm:p-10 border-b md:border-b-0 md:border-r border-[#DCD7CD] space-y-4">
             <h3 className="text-xl sm:text-2xl font-normal text-[#1C1B1A] tracking-tight">
               Vandana Babbar
             </h3>
 
-            <div className="space-y-2 pt-6">
+            <div className="space-y-1.5">
               <a
                 href="tel:+919815300103"
                 className="text-xs sm:text-sm font-mono text-[#6E6A63] hover:text-[#1C1B1A] block transition-colors tracking-wide"
@@ -38,8 +38,8 @@ export default function ContactSection() {
           </div>
 
           {/* Column 2: Address and Working Hours */}
-          <div className="p-8 sm:p-10 border-b md:border-b-0 md:border-r border-[#DCD7CD] flex flex-col justify-between min-h-[220px]">
-            <div className="space-y-2">
+          <div className="p-8 sm:p-10 border-b md:border-b-0 md:border-r border-[#DCD7CD] space-y-6">
+            <div className="space-y-1.5">
               <h3 className="text-xl sm:text-2xl font-normal text-[#1C1B1A] tracking-tight">
                 Address
               </h3>
@@ -54,7 +54,7 @@ export default function ContactSection() {
               </a>
             </div>
 
-            <div className="space-y-1 pt-6">
+            <div className="space-y-0.5">
               <span className="text-[#8FA3B3] font-mono text-[10px] uppercase tracking-widest block">
                 Working Hours
               </span>
