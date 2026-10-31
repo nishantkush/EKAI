@@ -30,12 +30,12 @@ export default function ProcessSection() {
   ];
 
   return (
-    <section id="process" className="relative py-28 sm:py-36 bg-[#F7F5F0] hairline-t">
-      <div className="max-w-[1720px] mx-auto px-6 sm:px-10 lg:px-16">
+    <section id="process" className="relative py-16 sm:py-24 lg:py-36 bg-[#F7F5F0] hairline-t">
+      <div className="max-w-[1720px] mx-auto px-4 sm:px-8 lg:px-16">
         
         {/* Header */}
-        <div className="mb-16">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl uppercase font-normal tracking-widest text-[#8FA3B3]">
+        <div className="mb-8 sm:mb-12 lg:mb-16">
+          <h2 className="text-2xl sm:text-3xl lg:text-5xl uppercase font-normal tracking-widest text-[#8FA3B3]">
             Process
           </h2>
         </div>
@@ -45,17 +45,19 @@ export default function ProcessSection() {
           {stages.map((stage, idx) => (
             <div
               key={stage.num}
-              className={`p-8 space-y-4 ${
-                idx !== 0 ? 'md:border-l md:border-[#DCD7CD] border-t md:border-t-0 border-[#DCD7CD]' : ''
-              }`}
+              className={`p-6 sm:p-8 space-y-2.5 sm:space-y-3 ${
+                idx !== stages.length - 1 ? 'border-b md:border-b-0' : ''
+              } ${
+                idx !== 0 ? 'md:border-l md:border-[#DCD7CD]' : ''
+              } border-[#DCD7CD]`}
             >
-              <span className="font-mono text-2xl font-light text-[#8FA3B3] block">
+              <span className="font-mono text-xl sm:text-2xl font-light text-[#8FA3B3] block">
                 {stage.num}
               </span>
-              <h3 className="text-lg font-medium text-[#1C1B1A] tracking-wide">
+              <h3 className="text-base sm:text-lg font-medium text-[#1C1B1A] tracking-wide">
                 {stage.title}
               </h3>
-              <p className="text-xs text-[#6E6A63] font-light leading-relaxed">
+              <p className="text-xs sm:text-sm text-[#6E6A63] font-light leading-relaxed">
                 {stage.desc}
               </p>
             </div>

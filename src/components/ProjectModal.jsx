@@ -17,7 +17,7 @@ export default function ProjectModal({ project, onClose, onSelectProject }) {
     document.body.style.overflow = 'hidden';
     return () => {
       window.removeEventListener('keydown', handleKeyDown);
-      document.body.style.overflow = 'auto';
+      document.body.style.overflow = '';
     };
   }, [project]);
 
@@ -41,32 +41,38 @@ export default function ProjectModal({ project, onClose, onSelectProject }) {
         {/* Backdrop click to close */}
         <div className="fixed inset-0" onClick={onClose} aria-label="Close modal overlay" />
 
-        <div className="min-h-full flex items-start justify-center p-0 sm:p-6 lg:p-10 py-0 sm:py-8">
+        <div className="min-h-full flex items-start justify-center p-2 sm:p-6 lg:p-10 py-3 sm:py-8">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: 20 }}
-            transition={{ duration: 0.3, ease: 'easeOut' }}
+            exit={{ opacity: 0, y: 15 }}
+            transition={{ duration: 0.25, ease: 'easeOut' }}
             className="relative w-full max-w-[1400px] bg-[#F7F5F0] border border-[#DCD7CD] z-10 overflow-hidden flex flex-col shadow-modal my-auto"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Sticky Top Navigation Bar */}
-            <div className="sticky top-0 z-30 flex items-center justify-end px-4 sm:px-8 lg:px-10 py-4 bg-[#F7F5F0]/95 backdrop-blur-md hairline-b shadow-sm gap-4">
+            <div className="sticky top-0 z-30 flex items-center justify-between px-4 sm:px-8 lg:px-10 py-3 sm:py-4 bg-[#F7F5F0]/95 backdrop-blur-md hairline-b shadow-sm gap-3">
+              <div className="text-[10px] sm:text-xs font-mono uppercase tracking-widest text-[#8FA3B3] truncate">
+                {project.stripIndex || String(currentIndex + 1).padStart(2, '0')} · {project.typology}
+              </div>
+
               {/* Prev / Next & Close */}
-              <div className="flex items-center gap-2">
-                <div className="hidden sm:flex items-center border border-[#DCD7CD] bg-[#EBE7DF]/40">
+              <div className="flex items-center gap-1.5 sm:gap-2 flex-none">
+                <div className="flex items-center border border-[#DCD7CD] bg-[#EBE7DF]/40">
                   <button
                     onClick={handlePrev}
-                    className="p-2 text-[#1C1B1A] hover:text-[#8FA3B3] hover:bg-white transition-colors"
+                    className="p-1.5 sm:p-2 text-[#1C1B1A] hover:text-[#8FA3B3] hover:bg-white transition-colors active:scale-95"
                     title="Previous Project"
+                    aria-label="Previous Project"
                   >
                     <ChevronLeft className="w-4 h-4" />
                   </button>
-                  <span className="w-[1px] h-4 bg-[#DCD7CD]" />
+                  <span className="w-[1px] h-3.5 sm:h-4 bg-[#DCD7CD]" />
                   <button
                     onClick={handleNext}
-                    className="p-2 text-[#1C1B1A] hover:text-[#8FA3B3] hover:bg-white transition-colors"
+                    className="p-1.5 sm:p-2 text-[#1C1B1A] hover:text-[#8FA3B3] hover:bg-white transition-colors active:scale-95"
                     title="Next Project"
+                    aria-label="Next Project"
                   >
                     <ChevronRight className="w-4 h-4" />
                   </button>
@@ -74,7 +80,7 @@ export default function ProjectModal({ project, onClose, onSelectProject }) {
 
                 <button
                   onClick={onClose}
-                  className="p-2 border border-[#DCD7CD] hover:border-[#8FA3B3] text-[#1C1B1A] hover:text-[#8FA3B3] transition-colors bg-[#F7F5F0]"
+                  className="p-1.5 sm:p-2 border border-[#DCD7CD] hover:border-[#8FA3B3] text-[#1C1B1A] hover:text-[#8FA3B3] transition-colors bg-[#F7F5F0] active:scale-95"
                   aria-label="Close"
                   title="Close (ESC)"
                 >
@@ -84,11 +90,11 @@ export default function ProjectModal({ project, onClose, onSelectProject }) {
             </div>
 
             {/* Modal Content — Two Column Architectural Split Layout */}
-            <div className="p-6 sm:p-10 lg:p-12 space-y-10">
-              <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-start">
+            <div className="p-4 sm:p-8 lg:p-12 space-y-6 sm:space-y-10">
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-10 lg:gap-14 items-start">
                 
                 {/* Left Column (Half Page): Project Name & Narrative */}
-                <div className="lg:col-span-6 flex flex-col justify-start space-y-6">
+                <div className="lg:col-span-6 flex flex-col justify-start space-y-4 sm:space-y-6">
                   {/* Category & Index Meta */}
                   <div className="flex items-center gap-2 text-xs font-mono text-[#8FA3B3]">
                     <span className="font-semibold">
@@ -102,33 +108,33 @@ export default function ProjectModal({ project, onClose, onSelectProject }) {
 
                   {/* Project Name */}
                   <div>
-                    <h1 className="text-3xl sm:text-4xl lg:text-5xl font-light text-[#1C1B1A] tracking-tight">
+                    <h1 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-light text-[#1C1B1A] tracking-tight">
                       {project.title}
                     </h1>
-                    <p className="text-xs sm:text-sm font-mono text-[#6E6A63] mt-2">
+                    <p className="text-xs sm:text-sm font-mono text-[#6E6A63] mt-1.5">
                       {project.location}
                     </p>
                   </div>
 
                   {/* Divider */}
-                  <div className="w-16 h-[1px] bg-[#8FA3B3]" />
+                  <div className="w-12 sm:w-16 h-[1px] bg-[#8FA3B3]" />
 
                   {/* Project Description Narrative */}
-                  <div className="space-y-4">
+                  <div className="space-y-3 sm:space-y-4">
                     <span className="text-[10px] uppercase font-mono tracking-widest text-[#8FA3B3] block">
                       Concept &amp; Description
                     </span>
-                    <h3 className="text-xl sm:text-2xl font-light text-[#1C1B1A] leading-snug">
+                    <h3 className="text-base sm:text-xl lg:text-2xl font-light text-[#1C1B1A] leading-snug">
                       {project.shortDesc}
                     </h3>
-                    <p className="text-sm sm:text-base text-[#6E6A63] font-light leading-relaxed">
+                    <p className="text-xs sm:text-sm lg:text-base text-[#6E6A63] font-light leading-relaxed">
                       {project.fullDesc}
                     </p>
                   </div>
                 </div>
 
                 {/* Right Column (Half Page): Project Showcase Image & Thumbnails */}
-                <div className="lg:col-span-6 flex flex-col space-y-4">
+                <div className="lg:col-span-6 flex flex-col space-y-3 sm:space-y-4">
                   {/* Primary Hero Showcase Image */}
                   <div className="relative aspect-[4/3] sm:aspect-[16/11] bg-[#EBE7DF] border border-[#DCD7CD] overflow-hidden group shadow-sm">
                     <img
@@ -145,12 +151,12 @@ export default function ProjectModal({ project, onClose, onSelectProject }) {
 
                   {/* Thumbnails Row */}
                   {allImages.length > 1 && (
-                    <div className="flex gap-2.5 overflow-x-auto no-scrollbar py-1">
+                    <div className="flex gap-2 overflow-x-auto no-scrollbar py-1 touch-pan-x">
                       {allImages.map((img, i) => (
                         <button
                           key={i}
                           onClick={() => setActiveImageIndex(i)}
-                          className={`relative w-20 sm:w-24 aspect-[4/3] flex-none border transition-all ${
+                          className={`relative w-16 sm:w-20 aspect-[4/3] flex-none border transition-all ${
                             activeImageIndex === i
                               ? 'border-[#8FA3B3] ring-1 ring-[#8FA3B3]'
                               : 'border-[#DCD7CD] opacity-60 hover:opacity-100 hover:border-[#8FA3B3]'
@@ -166,29 +172,29 @@ export default function ProjectModal({ project, onClose, onSelectProject }) {
               </div>
 
               {/* Bottom Navigation & Close Bar */}
-              <div className="pt-8 border-t border-[#DCD7CD] flex flex-col sm:flex-row items-center justify-between gap-4">
+              <div className="pt-6 sm:pt-8 border-t border-[#DCD7CD] flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 sm:gap-4">
                 <button
                   onClick={onClose}
-                  className="w-full sm:w-auto px-6 py-3.5 bg-[#1C1B1A] hover:bg-[#8FA3B3] text-[#F7F5F0] hover:text-[#1C1B1A] font-mono text-xs uppercase tracking-widest transition-colors flex items-center justify-center gap-2.5 shadow-sm group"
+                  className="w-full sm:w-auto px-5 py-3 bg-[#1C1B1A] hover:bg-[#8FA3B3] text-[#F7F5F0] hover:text-[#1C1B1A] font-mono text-xs uppercase tracking-widest transition-colors flex items-center justify-center gap-2 shadow-sm group active:scale-[0.98]"
                 >
                   <ArrowLeft className="w-4 h-4 transition-transform group-hover:-translate-x-1" />
                   <span className="font-medium">Back to Website</span>
                 </button>
 
-                <div className="flex items-center gap-3 w-full sm:w-auto justify-end">
+                <div className="flex items-center gap-2 sm:gap-3 w-full sm:w-auto">
                   <button
                     onClick={handlePrev}
-                    className="flex-1 sm:flex-none px-4 py-3 border border-[#DCD7CD] hover:border-[#8FA3B3] text-[#1C1B1A] font-mono text-xs uppercase tracking-wider flex items-center justify-center gap-1.5 transition-colors"
+                    className="flex-1 sm:flex-none px-3.5 py-2.5 sm:py-3 border border-[#DCD7CD] hover:border-[#8FA3B3] text-[#1C1B1A] font-mono text-[11px] sm:text-xs uppercase tracking-wider flex items-center justify-center gap-1.5 transition-colors active:scale-95"
                   >
-                    <ChevronLeft className="w-4 h-4" />
+                    <ChevronLeft className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
                     <span>Prev Project</span>
                   </button>
                   <button
                     onClick={handleNext}
-                    className="flex-1 sm:flex-none px-4 py-3 border border-[#DCD7CD] hover:border-[#8FA3B3] text-[#1C1B1A] font-mono text-xs uppercase tracking-wider flex items-center justify-center gap-1.5 transition-colors"
+                    className="flex-1 sm:flex-none px-3.5 py-2.5 sm:py-3 border border-[#DCD7CD] hover:border-[#8FA3B3] text-[#1C1B1A] font-mono text-[11px] sm:text-xs uppercase tracking-wider flex items-center justify-center gap-1.5 transition-colors active:scale-95"
                   >
                     <span>Next Project</span>
-                    <ChevronRight className="w-4 h-4" />
+                    <ChevronRight className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
                   </button>
                 </div>
               </div>
