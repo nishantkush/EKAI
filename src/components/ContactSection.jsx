@@ -17,30 +17,27 @@ export default function ContactSection() {
           {/* Column 1: Name, Contact Number, Email ID */}
           <div className="p-8 border-b md:border-b-0 md:border-r border-[#DCD7CD] flex flex-col justify-between space-y-6">
             {/* Name */}
-            <div className="space-y-1">
-              <h3 className="text-lg font-normal text-[#1C1B1A]">Name</h3>
-              <p className="text-xs text-[#6E6A63] font-light">
+            <div>
+              <p className="text-lg font-normal text-[#1C1B1A]">
                 Vandana Babbar
               </p>
             </div>
 
             {/* Contact Number */}
-            <div className="pt-4 border-t border-[#DCD7CD]/60 space-y-1">
-              <h3 className="text-lg font-normal text-[#1C1B1A]">Contact Number</h3>
+            <div className="pt-4 border-t border-[#DCD7CD]/60">
               <a
                 href="tel:+919815300103"
-                className="text-xs font-mono text-[#6E6A63] hover:text-[#1C1B1A] block transition-colors"
+                className="text-sm font-mono text-[#1C1B1A] hover:text-[#6D8496] block transition-colors"
               >
                 +91-9815300103
               </a>
             </div>
 
             {/* Email ID */}
-            <div className="pt-4 border-t border-[#DCD7CD]/60 space-y-1">
-              <h3 className="text-lg font-normal text-[#1C1B1A]">Email ID</h3>
+            <div className="pt-4 border-t border-[#DCD7CD]/60">
               <a
                 href="mailto:vandanababbar@gmail.com"
-                className="text-xs font-mono text-[#6E6A63] hover:text-[#1C1B1A] block transition-colors"
+                className="text-sm font-mono text-[#1C1B1A] hover:text-[#6D8496] block transition-colors"
               >
                 vandanababbar@gmail.com
               </a>
